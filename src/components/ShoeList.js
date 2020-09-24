@@ -11,8 +11,8 @@ class ShoeList extends React.Component {
   renderList() {
     return this.props.shoes.map((shoe) => {
       return (
-        <div classname="ui four column doubling stackable grid container">
-          <div className="column" key={shoe._id}>
+        <div className="three wide column">
+          <div key={shoe._id}>
             <i className="massive middle aligned images icon" />
             <div className="content">
               <div className="desctiption">
@@ -29,7 +29,11 @@ class ShoeList extends React.Component {
     });
   }
   render() {
-    return <div className="ui relaxed divided list"> {this.renderList()}</div>;
+    return (
+      <div className="ui grid">
+        <div className="doubling eight column row">{this.renderList()}</div>
+      </div>
+    );
   }
 }
 
