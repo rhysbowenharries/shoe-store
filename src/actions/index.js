@@ -1,7 +1,7 @@
-import jsonPlaceholder from "../apis/jsonPlaceholder";
+import Localhost from "../apis/localhost:8000";
 
 export const fetchShoes = () => async (dispatch) => {
-  const response = await jsonPlaceholder.get("/shoes");
+  const response = await Localhost.get("/shoes");
 
   dispatch({ type: "FETCH_SHOES", payload: response.data });
 };

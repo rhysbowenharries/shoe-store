@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchShoes } from "../actions";
-import faker from "faker";
+import { fetchShoes } from "../../actions";
 
 class ShoeList extends React.Component {
   componentDidMount() {
