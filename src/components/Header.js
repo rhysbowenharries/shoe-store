@@ -9,7 +9,7 @@ const Header = () => {
       </Link>
       <div className="right menu">
         <Link to="/shoes/list" className="item">
-          Womens | Mens
+          Women's | Men's
         </Link>
       </div>
     </div>

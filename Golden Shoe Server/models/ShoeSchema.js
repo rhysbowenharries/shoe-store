@@ -13,6 +13,10 @@ const ShoeSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  quantity: {
+    type: Number,
+    required: true,
+  },
   brand: {
     type: String,
     required: true,

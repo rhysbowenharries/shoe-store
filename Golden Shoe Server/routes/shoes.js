@@ -16,6 +16,7 @@ router.post("/", async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
+    quantity: req.body.quantity,
     brand: req.body.brand,
     category: req.body.category,
   });
@@ -55,6 +56,7 @@ router.patch("/:shoeId", async (req, res) => {
           title: req.body.title,
           description: req.body.description,
           price: req.body.price,
+          quantity: req.body.quantity,
           brand: req.body.brand,
           category: req.body.category,
         },
