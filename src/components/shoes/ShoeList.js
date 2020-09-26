@@ -10,17 +10,15 @@ class ShoeList extends React.Component {
   renderList() {
     return this.props.shoes.map((shoe) => {
       return (
-        <div className="three wide column">
-          <div key={shoe._id}>
-            <i className="massive middle aligned images icon" />
-            <div className="content">
-              <div className="desctiption">
-                <h3>{shoe.brand}</h3>
-                <p>{shoe.title}</p>
-                <p>
-                  <strong>£{shoe.price}</strong>
-                </p>
-              </div>
+        <div key={shoe._id} className="three wide column">
+          <i className="massive middle aligned images icon" />
+          <div className="content">
+            <div className="desctiption">
+              <h3>{shoe.brand}</h3>
+              <p>{shoe.title}</p>
+              <p>
+                <strong>£{shoe.price}</strong>
+              </p>
             </div>
           </div>
         </div>
