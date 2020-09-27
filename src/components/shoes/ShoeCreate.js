@@ -1,5 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { createShoe } from "../../actions";
 
 const brands = ["Nike", "Hushpuppy", "Mona Lisa", "Kickers"];
 const categories = [
@@ -17,38 +19,48 @@ const categories = [
 ];
 
 class ShoeCreate extends React.Component {
-  renderInput({ input, label, type, meta }) {
-    console.log(meta);
-    return (
-      <div className="field">
-        <label>{label}</label>
-        <input {...input} type={type} />
-        <div>{meta.error}</div>
-      </div>
-    );
+  renderError({ error, touched }) {
+    if (touched && error) {
+      return (
+        <div className="ui error message">
+          <div className="header">{error}</div>
+        </div>
+      );
+    }
   }
 
-  renderSelectInput({ input, label, type, meta, children }) {
+  renderInput = ({ input, label, type, meta }) => {
+    const className = `field ${meta.error && meta.touched ? "error" : ""}`;
+    return (
+      <div className={className}>
+        <label>{label}</label>
+        <input {...input} type={type} autoComplete="off" />
+        {this.renderError(meta)}
+      </div>
+    );
+  };
+
+  renderSelectInput = ({ input, label, type, meta, children }) => {
     return (
       <div className="field">
         <label>{label}</label>
         <select {...input} type={type}>
           {children}
         </select>
-        <div>{meta.error}</div>
+        {this.renderError(meta)}
       </div>
     );
-  }
+  };
 
-  onSubmit(formValues) {
-    console.log(formValues);
-  }
+  onSubmit = (formValues) => {
+    this.props.createShoe(formValues);
+  };
 
   render() {
     return (
       <form
         onSubmit={this.props.handleSubmit(this.onSubmit)}
-        className="ui form"
+        className="ui form error"
       >
         <Field name="title" component={this.renderInput} label="Enter Name" />
         <Field
@@ -115,7 +127,7 @@ const validate = (formValues) => {
   if (isNaN(Number(formValues.quantity))) {
     errors.quantity = "Please Select a quantity";
   }
-  if (isNaN(Number(formValues.price))) {
+  if (!formValues.category) {
     errors.category = "Please Select a Category";
   }
   if (!formValues.brand) {
@@ -124,7 +136,9 @@ const validate = (formValues) => {
   return errors;
 };
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: "shoeCreate",
   validate,
 })(ShoeCreate);
+
+export default connect(null, { createShoe })(formWrapped);
