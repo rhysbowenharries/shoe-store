@@ -28,6 +28,7 @@ class ShoeList extends React.Component {
   render() {
     return (
       <div className="ui grid">
+        <h2>ALL SHOES</h2>
         <div className="doubling eight column row">{this.renderList()}</div>
       </div>
     );
@@ -35,7 +36,7 @@ class ShoeList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { shoes: state.shoes };
+  return { shoes: Object.values(state.shoes) };
 };
 
 export default connect(mapStateToProps, { fetchShoes })(ShoeList);
