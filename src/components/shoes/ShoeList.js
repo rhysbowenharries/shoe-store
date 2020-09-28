@@ -8,11 +8,13 @@ class ShoeList extends React.Component {
     this.props.fetchShoes();
   }
 
-  renderAdmin() {
+  renderAdmin(shoe) {
     if (this.props.adminPrivileges) {
       return (
         <div className="content">
-          <button className="ui button ">Edit</button>
+          <Link to={`/AdminXp2Q/Shoes/edit/${shoe._id}`} className="ui button ">
+            Edit
+          </Link>
           <button className="ui button negative">Delete</button>
         </div>
       );
@@ -31,7 +33,7 @@ class ShoeList extends React.Component {
               <p>
                 <strong>£{shoe.price}</strong>
               </p>
-              {this.renderAdmin()}
+              {this.renderAdmin(shoe)}
             </div>
           </div>
         </div>
@@ -61,7 +63,7 @@ class ShoeList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  delete state.shoes.undefined;
+  // delete state.shoes.undefined;
   return {
     shoes: Object.values(state.shoes),
     adminPrivileges: state.auth.isSignedIn,

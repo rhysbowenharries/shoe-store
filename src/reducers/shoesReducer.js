@@ -12,11 +12,11 @@ export default (state = {}, action) => {
     case FETCH_SHOES:
       return { ...state, ..._.mapKeys(action.payload, "_id") };
     case FETCH_SHOE:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, [action.payload._id]: action.payload };
     case CREATE_SHOE:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, [action.payload._id]: action.payload };
     case EDIT_SHOE:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, [action.payload._id]: action.payload };
     case DELETE_SHOE:
       return _.omit(state, action.payload);
     default:
