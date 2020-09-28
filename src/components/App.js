@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 
 import ShoeCreate from "./shoes/ShoeCreate";
 import ShoeEdit from "./shoes/ShoeEdit";
@@ -9,11 +9,12 @@ import ShoeShow from "./shoes/ShoeShow";
 import HomePage from "./HomePage";
 import Header from "./Header";
 import GoogleAuth from "./GoogleAuth";
+import history from "../history";
 
 const App = () => {
   return (
     <div className="ui container">
-      <BrowserRouter>
+      <Router history={history}>
         <div>
           <Header />
           <Route path="/" exact component={HomePage} />
@@ -24,16 +25,8 @@ const App = () => {
           <Route path="/Shoes/List" exact component={ShoeList} />
           <Route path="/AdminXp2Q" exact component={GoogleAuth} />
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 };
 export default App;
-
-// const App = () => {
-//   return (
-//     <div className="ui container">
-//       <ShoeList />
-//     </div>
-//   );
-// };

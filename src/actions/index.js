@@ -1,5 +1,6 @@
 import Localhost from "../apis/localhost:8000";
-import shoesReducer from "../reducers/shoesReducer";
+import history from "../history";
+
 import {
   SIGN_IN,
   SIGN_OUT,
@@ -21,6 +22,13 @@ export const signOut = () => {
   };
 };
 
+export const createShoe = (formValues) => async (dispatch) => {
+  const response = await Localhost.post("/shoes", formValues);
+
+  dispatch({ type: CREATE_SHOE, payload: response.data });
+  history.push("/shoes/list");
+};
+
 export const fetchShoes = () => async (dispatch) => {
   const response = await Localhost.get("/shoes");
 
@@ -31,12 +39,6 @@ export const fetchShoe = (id) => async (dispatch) => {
   const response = await Localhost.get(`/shoes/${id}`);
 
   dispatch({ type: FETCH_SHOE, payload: response.data });
-};
-
-export const createShoe = (formValues) => async (dispatch) => {
-  const response = await Localhost.post("/shoes", formValues);
-
-  dispatch({ type: CREATE_SHOE, payload: response.data });
 };
 
 export const editShoe = (id, formValues) => async (dispatch) => {
