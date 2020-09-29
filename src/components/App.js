@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 
 import ShoeCreate from "./shoes/ShoeCreate";
 import ShoeEdit from "./shoes/ShoeEdit";
@@ -17,18 +17,24 @@ const App = () => {
       <Router history={history}>
         <div>
           <Header />
-          <Route path="/" exact component={HomePage} />
-          <Route path="/Shoes/new" exact component={ShoeCreate} />
-          <Route path="/Shoes/:id" exact component={ShoeShow} />
-          <Route path="/Shoes/List" exact component={ShoeList} />
-          <Route path="/AdminXp2Q" component={GoogleAuth} />
-          <Route
-            path="/AdminXp2Q/Shoes/Delete/:id"
-            exact
-            component={ShoeDelete}
-          />
-          <Route path="/AdminXp2Q/Shoes/edit/:id" exact component={ShoeEdit} />
-          <Route path="/AdminXp2Q/Shoes/List" exact component={ShoeList} />
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/Shoes/new" exact component={ShoeCreate} />
+            <Route path="/Shoes/List" exact component={ShoeList} />
+            <Route path="/AdminXp2Q" component={GoogleAuth} />
+            <Route
+              path="/AdminXp2Q/Shoes/Delete/:id"
+              exact
+              component={ShoeDelete}
+            />
+            <Route
+              path="/AdminXp2Q/Shoes/edit/:id"
+              exact
+              component={ShoeEdit}
+            />
+            <Route path="/AdminXp2Q/Shoes/List" exact component={ShoeList} />
+            <Route path="/Shoes/:id" exact component={ShoeShow} />
+          </Switch>
         </div>
       </Router>
     </div>

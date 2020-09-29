@@ -29,19 +29,21 @@ class ShoeList extends React.Component {
   renderList() {
     return this.props.shoes.map((shoe) => {
       return (
-        <div key={shoe._id} className="three wide column">
-          <i className="massive middle aligned images icon" />
-          <div className="content">
-            <div className="desctiption">
-              <h3>{shoe.brand}</h3>
-              <p>{shoe.title}</p>
-              <p>
-                <strong>£{shoe.price}</strong>
-              </p>
-              {this.renderAdmin(shoe)}
+        <Link to={`/shoes/${shoe._id}`}>
+          <div key={shoe._id} className="ui segment">
+            <i className="massive middle aligned images black icon" />
+            <div className="ui content">
+              <div className="desctiption">
+                <h3 className="ui black header">{shoe.brand}</h3>
+                <p>{shoe.title}</p>
+                <p>
+                  <strong className="ui orange label">£{shoe.price}</strong>
+                </p>
+                {this.renderAdmin(shoe)}
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       );
     });
   }
