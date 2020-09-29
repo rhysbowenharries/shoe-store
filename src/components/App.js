@@ -19,10 +19,14 @@ const App = () => {
           <Header />
           <Route path="/" exact component={HomePage} />
           <Route path="/Shoes/new" exact component={ShoeCreate} />
-          <Route path="/Shoes/Delete" exact component={ShoeDelete} />
-          <Route path="/Shoes/Show" exact component={ShoeShow} />
+          <Route path="/Shoes/:id" exact component={ShoeShow} />
           <Route path="/Shoes/List" exact component={ShoeList} />
           <Route path="/AdminXp2Q" component={GoogleAuth} />
+          <Route
+            path="/AdminXp2Q/Shoes/Delete/:id"
+            exact
+            component={ShoeDelete}
+          />
           <Route path="/AdminXp2Q/Shoes/edit/:id" exact component={ShoeEdit} />
           <Route path="/AdminXp2Q/Shoes/List" exact component={ShoeList} />
         </div>

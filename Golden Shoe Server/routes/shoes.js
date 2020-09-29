@@ -47,7 +47,7 @@ router.delete("/:shoeId", async (req, res) => {
   }
 });
 
-router.put("/:shoeId", async (req, res) => {
+router.patch("/:shoeId", async (req, res) => {
   try {
     const updatedShoe = await Shoe.updateMany(
       { _id: req.params.shoeId },

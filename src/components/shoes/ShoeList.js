@@ -15,7 +15,12 @@ class ShoeList extends React.Component {
           <Link to={`/AdminXp2Q/Shoes/edit/${shoe._id}`} className="ui button ">
             Edit
           </Link>
-          <button className="ui button negative">Delete</button>
+          <Link
+            to={`/AdminXp2Q/Shoes/delete/${shoe._id}`}
+            className="ui button negative"
+          >
+            Delete
+          </Link>
         </div>
       );
     }

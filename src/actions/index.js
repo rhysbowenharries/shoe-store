@@ -42,7 +42,7 @@ export const fetchShoe = (id) => async (dispatch) => {
 };
 
 export const editShoe = (id, formValues) => async (dispatch) => {
-  const response = await Localhost.put(`/shoes/${id}`, formValues);
+  const response = await Localhost.patch(`/shoes/${id}`, formValues);
   dispatch({ type: EDIT_SHOE, payload: response.data.result });
   history.push("/AdminXp2Q/Shoes/List");
 };
@@ -51,4 +51,5 @@ export const deleteShoe = (id) => async (dispatch) => {
   await Localhost.delete(`/shoes/${id}`);
 
   dispatch({ type: DELETE_SHOE, payload: id });
+  history.push("/AdminXp2Q/Shoes/List");
 };
