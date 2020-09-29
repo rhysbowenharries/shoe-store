@@ -69,7 +69,7 @@ class GoogleAuth extends React.Component {
 
   render() {
     return (
-      <div style={{ padding: 60 }}>
+      <div style={{ paddingBottom: 60 }}>
         <h3 className="ui center aligned icon header">
           <i className="circular user icon"></i>
           Welcome Golden Shoe Employee

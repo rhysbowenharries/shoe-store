@@ -26,7 +26,7 @@ export const createShoe = (formValues) => async (dispatch) => {
   const response = await Localhost.post("/shoes", formValues);
 
   dispatch({ type: CREATE_SHOE, payload: response.data });
-  history.push("/shoes/list");
+  history.push("/AdminXp2Q/Shoes/List");
 };
 
 export const fetchShoes = () => async (dispatch) => {
@@ -43,8 +43,8 @@ export const fetchShoe = (id) => async (dispatch) => {
 
 export const editShoe = (id, formValues) => async (dispatch) => {
   const response = await Localhost.put(`/shoes/${id}`, formValues);
-
-  dispatch({ type: EDIT_SHOE, payload: response.data });
+  dispatch({ type: EDIT_SHOE, payload: response.data.result });
+  history.push("/AdminXp2Q/Shoes/List");
 };
 
 export const deleteShoe = (id) => async (dispatch) => {

@@ -47,7 +47,7 @@ router.delete("/:shoeId", async (req, res) => {
   }
 });
 
-router.patch("/:shoeId", async (req, res) => {
+router.put("/:shoeId", async (req, res) => {
   try {
     const updatedShoe = await Shoe.updateMany(
       { _id: req.params.shoeId },
@@ -62,7 +62,8 @@ router.patch("/:shoeId", async (req, res) => {
         },
       }
     );
-    res.json(updatedShoe);
+    const shoe = await Shoe.findById(req.params.shoeId);
+    res.json({ response: updatedShoe, result: shoe });
   } catch (err) {
     res.json({ message: err });
   }
