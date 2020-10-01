@@ -19,9 +19,8 @@ const App = () => {
           <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path="/Shoes/new" exact component={ShoeCreate} />
+            <Route path="/AdminXp2Q/Shoes/new" exact component={ShoeCreate} />
             <Route path="/Shoes/List" exact component={ShoeList} />
-            <Route path="/AdminXp2Q" component={GoogleAuth} />
             <Route
               path="/AdminXp2Q/Shoes/Delete/:id"
               exact
@@ -33,6 +32,7 @@ const App = () => {
               component={ShoeEdit}
             />
             <Route path="/AdminXp2Q/Shoes/List" exact component={ShoeList} />
+            <Route path="/AdminXp2Q" component={GoogleAuth} />
             <Route path="/Shoes/:id" exact component={ShoeShow} />
           </Switch>
         </div>

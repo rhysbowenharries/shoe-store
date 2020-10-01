@@ -1,5 +1,6 @@
 import "../css/imageSlider.css";
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchShoe } from "../../actions";
 import ImageGallery from "react-image-gallery";
@@ -36,12 +37,26 @@ class ShoeShow extends React.Component {
     }
     return (
       <div>
+        <div>
+          <h1>
+            {this.props.shoe.brand}: {this.props.shoe.title}
+          </h1>
+        </div>
+        <div
+          className="ui centered buttons"
+          style={{ paddingTop: 10, paddingBottom: 10 }}
+        >
+          <Link to={`/`} className="ui button ">
+            Add to Cart
+          </Link>
+          <Link to={`/`} className="ui button primary">
+            Buy Now
+          </Link>
+        </div>
         <div className="show-show-image-slider">
           <ImageGallery items={images} />
         </div>
-        <h1>{this.props.shoe.title}</h1>
-        <p>By:</p>
-        <p>{this.props.shoe.brand}</p>
+        <p>{this.props.shoe.description}</p>
       </div>
     );
   }
