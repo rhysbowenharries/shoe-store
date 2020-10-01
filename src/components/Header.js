@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="ui secondary pointing menu">
+    <div className="ui top fixed massive menu">
       <Link to="/" className="item">
         THE GOLDEN SHOE
       </Link>

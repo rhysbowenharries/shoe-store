@@ -1,7 +1,48 @@
+import "./css/imageSlider.css";
 import React from "react";
+import ImageGallery from "react-image-gallery";
 
-const HomePage = () => {
-  return <div>Home Page</div>;
-};
+const smart =
+  "https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=250&w=940";
+const golden =
+  "https://images.pexels.com/photos/977908/pexels-photo-977908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=250&w=940";
+const trainers =
+  "https://images.pexels.com/photos/1124466/pexels-photo-1124466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=250&w=940";
+const images = [
+  {
+    original: smart,
+    thumbnail: smart,
+  },
+  {
+    original: golden,
+    thumbnail: golden,
+  },
+  {
+    original: trainers,
+    thumbnail: trainers,
+  },
+];
 
-export default HomePage;
+class Homepage extends React.Component {
+  render() {
+    return (
+      <div>
+        <ImageGallery items={images} />
+        <div className="ui centered large images">
+          <img
+            src={require("../images/student.jpg")}
+            alt="20% student discount"
+            className="ui centered image"
+          />
+          <img
+            src={require("../images/newsletter.jpg")}
+            alt="10% discount if you join our newsletter"
+            className="ui centered image"
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Homepage;
