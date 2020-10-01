@@ -28,16 +28,16 @@ class Homepage extends React.Component {
     return (
       <div>
         <ImageGallery items={images} />
-        <div className="ui centered large images">
+        <div className="ui large images" style={{ textAlign: "center" }}>
           <img
             src={require("../images/student.jpg")}
             alt="20% student discount"
-            className="ui centered image"
+            className="ui image"
           />
           <img
             src={require("../images/newsletter.jpg")}
             alt="10% discount if you join our newsletter"
-            className="ui centered image"
+            className="ui image"
           />
         </div>
       </div>

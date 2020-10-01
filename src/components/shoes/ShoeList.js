@@ -29,18 +29,27 @@ class ShoeList extends React.Component {
   renderList() {
     return this.props.shoes.map((shoe) => {
       return (
-        <Link to={`/shoes/${shoe._id}`}>
-          <div key={shoe._id} className="ui segment">
-            <i className="massive middle aligned images black icon" />
-            <div className="ui content">
-              <div className="desctiption">
-                <h3 className="ui black header">{shoe.brand}</h3>
-                <p>{shoe.title}</p>
-                <p>
-                  <strong className="ui orange label">£{shoe.price}</strong>
-                </p>
-                {this.renderAdmin(shoe)}
-              </div>
+        <Link
+          to={`/shoes/${shoe._id}`}
+          key={shoe._id}
+          style={{
+            padding: 2,
+            margin: 2,
+            border: 1,
+            backgroundColor: "white",
+            borderStyle: "solid",
+            borderColor: "black",
+          }}
+        >
+          <i className="massive middle aligned images black icon" />
+          <div className="ui content">
+            <div className="desctiption">
+              <h3 className="ui black header">{shoe.brand}</h3>
+              <p>{shoe.title}</p>
+              <p>
+                <strong className="ui orange label">£{shoe.price}</strong>
+              </p>
+              {this.renderAdmin(shoe)}
             </div>
           </div>
         </Link>
@@ -60,7 +69,7 @@ class ShoeList extends React.Component {
 
   render() {
     return (
-      <div className="ui grid">
+      <div className="ui grid container">
         <h2>ALL SHOES</h2>
         <div className="doubling eight column row">{this.renderList()}</div>
         {this.renderCreate()}
