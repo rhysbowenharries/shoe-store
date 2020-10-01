@@ -29,9 +29,7 @@ class ShoeList extends React.Component {
   renderList() {
     return this.props.shoes.map((shoe) => {
       return (
-        <Link
-          to={`/shoes/${shoe._id}`}
-          key={shoe._id}
+        <div
           style={{
             padding: 2,
             margin: 2,
@@ -40,19 +38,22 @@ class ShoeList extends React.Component {
             borderStyle: "solid",
             borderColor: "black",
           }}
+          key={shoe._id}
         >
-          <i className="massive middle aligned images black icon" />
-          <div className="ui content">
-            <div className="desctiption">
-              <h3 className="ui black header">{shoe.brand}</h3>
-              <p>{shoe.title}</p>
-              <p>
-                <strong className="ui orange label">£{shoe.price}</strong>
-              </p>
-              {this.renderAdmin(shoe)}
+          <Link to={`/shoes/${shoe._id}`}>
+            <i className="massive middle aligned images black icon" />
+            <div className="ui content">
+              <div className="desctiption">
+                <h3 className="ui black header">{shoe.brand}</h3>
+                <p>{shoe.title}</p>
+                <p>
+                  <strong className="ui orange label">£{shoe.price}</strong>
+                </p>
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+          {this.renderAdmin(shoe)}
+        </div>
       );
     });
   }

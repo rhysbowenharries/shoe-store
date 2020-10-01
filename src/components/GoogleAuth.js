@@ -75,6 +75,10 @@ class GoogleAuth extends React.Component {
           Welcome Golden Shoe Employee
         </h3>
         {this.renderAuthButton()}
+        <div className="ui large images" style={{ textAlign: "center" }}>
+          <img src={require("../images/graph1.png")} className="ui image" />
+          <img src={require("../images/graph2.jpg")} className="ui image" />
+        </div>
       </div>
     );
   }

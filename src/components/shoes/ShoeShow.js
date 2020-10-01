@@ -40,6 +40,7 @@ class ShoeShow extends React.Component {
         <div>
           <h1>
             {this.props.shoe.brand}: {this.props.shoe.title}
+            <h2>£{this.props.shoe.price}</h2>
           </h1>
         </div>
         <div
@@ -56,7 +57,13 @@ class ShoeShow extends React.Component {
         <div className="show-show-image-slider">
           <ImageGallery items={images} />
         </div>
-        <p>{this.props.shoe.description}</p>
+        <p>
+          {this.props.shoe.description}. Built sturdy for a supportive ride,{" "}
+          {this.props.shoe.brand} deliver the skate-inspired All Coasts 574
+          profile. On-trend mustard N branding adorns the navy suede upper for a
+          street-worthy look which will see you right from the street to the
+          skate park.
+        </p>
       </div>
     );
   }
