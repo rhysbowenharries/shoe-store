@@ -12,7 +12,14 @@ const Header = () => {
         </div>
         <div className="right menu">
           <Link to="/shoes/list" className="active item">
-            Women's | Men's
+            Products
+          </Link>
+          <Link
+            to="/checkout"
+            class="ui yellow icon button"
+            style={{ paddingTop: 20, marginLeft: 2 }}
+          >
+            <i class="shopping cart black icon"></i>
           </Link>
         </div>
       </div>

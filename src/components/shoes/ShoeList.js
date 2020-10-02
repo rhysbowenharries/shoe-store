@@ -11,7 +11,7 @@ class ShoeList extends React.Component {
   renderAdmin(shoe) {
     if (this.props.adminPrivileges) {
       return (
-        <div className="content">
+        <div className="content" style={{ margin: 1 }}>
           <Link to={`/AdminXp2Q/Shoes/edit/${shoe._id}`} className="ui button ">
             Edit
           </Link>
@@ -40,13 +40,13 @@ class ShoeList extends React.Component {
       return (
         <div
           style={{
-            padding: 2,
-            margin: 6,
+            padding: 1,
+            margin: 5,
             border: 1,
             backgroundColor: "white",
             borderStyle: "solid",
             borderColor: "black",
-            borderRadius: 9,
+            borderRadius: 5,
           }}
           key={shoe._id}
         >
@@ -101,7 +101,7 @@ class ShoeList extends React.Component {
         {this.renderSignOut()}
         <div
           className="ui relaxed grid container"
-          style={{ justifyContent: "center" }}
+          style={{ justifyContent: "center", marginTop: 10 }}
         >
           <h2>ALL SHOES</h2>
           <div className="doubling eight column row">{this.renderList()}</div>
@@ -113,7 +113,6 @@ class ShoeList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  // delete state.shoes.undefined;
   return {
     shoes: Object.values(state.shoes),
     adminPrivileges: state.auth.isSignedIn,

@@ -85,8 +85,16 @@ class GoogleAuth extends React.Component {
         </h3>
         {this.renderAuthButton()}
         <div className="ui large images" style={{ textAlign: "center" }}>
-          <img src={require("../images/graph1.png")} className="ui image" />
-          <img src={require("../images/graph2.jpg")} className="ui image" />
+          <img
+            src={require("../images/graph1.png")}
+            className="ui image"
+            alt="graph1"
+          />
+          <img
+            src={require("../images/graph2.jpg")}
+            className="ui image"
+            alt="graph2"
+          />
         </div>
       </div>
     );

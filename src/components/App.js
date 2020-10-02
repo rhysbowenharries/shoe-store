@@ -10,6 +10,7 @@ import HomePage from "./HomePage";
 import Header from "./Header";
 import history from "../history";
 import AdminPage from "./AdminPage";
+import Checkout from "./Checkout";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/" exact component={HomePage} />
             <Route path="/AdminXp2Q/Shoes/new" exact component={ShoeCreate} />
             <Route path="/Shoes/List" exact component={ShoeList} />
+            <Route path="/checkout" exact component={Checkout} />
             <Route
               path="/AdminXp2Q/Shoes/Delete/:id"
               exact
