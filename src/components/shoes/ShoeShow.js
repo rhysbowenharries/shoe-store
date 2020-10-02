@@ -31,6 +31,39 @@ class ShoeShow extends React.Component {
     this.props.fetchShoe(this.props.match.params.id);
   }
 
+  renderBuyButtons() {
+    if (this.props.shoe.quantity > 1) {
+      return (
+        <>
+          <Link to={`/`} className="ui button ">
+            Add to Cart
+          </Link>
+          <Link to={`/`} className="ui button primary">
+            Buy Now
+          </Link>
+        </>
+      );
+    }
+    if (this.props.shoe.quantity === 1) {
+      return (
+        <>
+          <Link to={`/`} className="ui button ">
+            Add to Cart
+          </Link>
+          <Link to={`/`} className="ui button orange">
+            Buy Now HURRY ONLY ONE LEFT!
+          </Link>
+        </>
+      );
+    } else {
+      return (
+        <Link to={`/`} className="ui red button ">
+          Sold Out, Click here for Back in Stock Alerts!
+        </Link>
+      );
+    }
+  }
+
   render() {
     if (!this.props.shoe) {
       return <div>Loading...</div>;
@@ -44,15 +77,10 @@ class ShoeShow extends React.Component {
           </h1>
         </div>
         <div
-          className="ui centered buttons"
+          className="ui buttons"
           style={{ paddingTop: 10, paddingBottom: 10 }}
         >
-          <Link to={`/`} className="ui button ">
-            Add to Cart
-          </Link>
-          <Link to={`/`} className="ui button primary">
-            Buy Now
-          </Link>
+          {this.renderBuyButtons()}
         </div>
         <div className="show-show-image-slider">
           <ImageGallery items={images} />

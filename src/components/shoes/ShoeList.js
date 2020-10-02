@@ -26,17 +26,27 @@ class ShoeList extends React.Component {
     }
   }
 
+  renderSoldOut(shoe) {
+    if (shoe.quantity === 0) {
+      return <p className="ui right red label">sold out</p>;
+    }
+    if (shoe.quantity === 1) {
+      return <p className="ui right blue label">only 1 left</p>;
+    }
+  }
+
   renderList() {
     return this.props.shoes.map((shoe) => {
       return (
         <div
           style={{
             padding: 2,
-            margin: 2,
+            margin: 6,
             border: 1,
             backgroundColor: "white",
             borderStyle: "solid",
             borderColor: "black",
+            borderRadius: 9,
           }}
           key={shoe._id}
         >
@@ -46,9 +56,8 @@ class ShoeList extends React.Component {
               <div className="desctiption">
                 <h3 className="ui black header">{shoe.brand}</h3>
                 <p>{shoe.title}</p>
-                <p>
-                  <strong className="ui orange label">£{shoe.price}</strong>
-                </p>
+                <p className="ui orange circular label"> £{shoe.price}</p>
+                {this.renderSoldOut(shoe)}
               </div>
             </div>
           </Link>
@@ -90,7 +99,10 @@ class ShoeList extends React.Component {
     return (
       <div>
         {this.renderSignOut()}
-        <div className="ui grid container">
+        <div
+          className="ui relaxed grid container"
+          style={{ justifyContent: "center" }}
+        >
           <h2>ALL SHOES</h2>
           <div className="doubling eight column row">{this.renderList()}</div>
           {this.renderCreate()}

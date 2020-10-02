@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
 
@@ -40,16 +41,24 @@ class GoogleAuth extends React.Component {
       return null;
     } else if (this.props.isSignedIn) {
       return (
-        <button
-          onClick={this.onSignOutClick}
-          className="ui large red animated right floated button"
-          tabIndex="0"
-        >
-          <div className="visible content">
-            <i className="sign-out icon"></i>
-          </div>
-          <div className="hidden content">sign-out</div>
-        </button>
+        <div style={{ padding: 10, margin: 10 }}>
+          <Link
+            className="ui large blue vertical button"
+            to={"/AdminXp2Q/Shoes/List"}
+          >
+            Edit Products
+          </Link>
+          <button
+            onClick={this.onSignOutClick}
+            className="ui large red animated right floated button"
+            tabIndex="0"
+          >
+            <div className="visible content">
+              <i className="sign-out icon"></i>
+            </div>
+            <div className="hidden content">sign-out</div>
+          </button>
+        </div>
       );
     } else {
       return (

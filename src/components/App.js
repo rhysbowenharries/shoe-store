@@ -8,8 +8,8 @@ import ShoeList from "./shoes/ShoeList";
 import ShoeShow from "./shoes/ShoeShow";
 import HomePage from "./HomePage";
 import Header from "./Header";
-import GoogleAuth from "./GoogleAuth";
 import history from "../history";
+import AdminPage from "./AdminPage";
 
 const App = () => {
   return (
@@ -32,7 +32,7 @@ const App = () => {
               component={ShoeEdit}
             />
             <Route path="/AdminXp2Q/Shoes/List" exact component={ShoeList} />
-            <Route path="/AdminXp2Q" component={GoogleAuth} />
+            <Route path="/AdminXp2Q" component={AdminPage} />
             <Route path="/Shoes/:id" exact component={ShoeShow} />
           </Switch>
         </div>
