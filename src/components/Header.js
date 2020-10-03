@@ -16,10 +16,10 @@ const Header = () => {
           </Link>
           <Link
             to="/checkout"
-            class="ui yellow icon button"
+            className="ui yellow icon button"
             style={{ paddingTop: 20, marginLeft: 2 }}
           >
-            <i class="shopping cart black icon"></i>
+            <i className="shopping cart black icon"></i>
           </Link>
         </div>
       </div>

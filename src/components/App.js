@@ -11,6 +11,7 @@ import Header from "./Header";
 import history from "../history";
 import AdminPage from "./AdminPage";
 import Checkout from "./Checkout";
+import Success from "./Success";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/success" exact component={Success} />
             <Route path="/AdminXp2Q/Shoes/new" exact component={ShoeCreate} />
             <Route path="/Shoes/List" exact component={ShoeList} />
             <Route path="/checkout" exact component={Checkout} />

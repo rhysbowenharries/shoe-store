@@ -1,8 +1,8 @@
 import "../css/imageSlider.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import history from "../../history";
 import { connect } from "react-redux";
-import { fetchShoe } from "../../actions";
+import { fetchShoe, addToCart, lowerShoeQuantity } from "../../actions";
 import ImageGallery from "react-image-gallery";
 
 const images = [
@@ -31,35 +31,46 @@ class ShoeShow extends React.Component {
     this.props.fetchShoe(this.props.match.params.id);
   }
 
+  onAddtoCartClick(shoe) {
+    console.log(shoe);
+    this.props.lowerShoeQuantity(shoe);
+    this.props.addToCart(shoe);
+    history.push("/success");
+  }
+
   renderBuyButtons() {
     if (this.props.shoe.quantity > 1) {
       return (
         <>
-          <Link to={`/`} className="ui button ">
+          <button
+            onClick={() => this.onAddtoCartClick(this.props.shoe)}
+            className="ui button "
+          >
             Add to Cart
-          </Link>
-          <Link to={`/`} className="ui button primary">
-            Buy Now
-          </Link>
+          </button>
+          <button className="ui button primary">Buy Now</button>
         </>
       );
     }
     if (this.props.shoe.quantity === 1) {
       return (
         <>
-          <Link to={`/`} className="ui button ">
+          <button
+            onClick={() => this.onAddtoCartClick(this.props.shoe)}
+            className="ui button "
+          >
             Add to Cart
-          </Link>
-          <Link to={`/`} className="ui button orange">
+          </button>
+          <button className="ui button orange">
             Buy Now HURRY ONLY ONE LEFT!
-          </Link>
+          </button>
         </>
       );
     } else {
       return (
-        <Link to={`/`} className="ui red button ">
+        <button className="ui red button ">
           Sold Out, Click here for Back in Stock Alerts!
-        </Link>
+        </button>
       );
     }
   }
@@ -71,16 +82,18 @@ class ShoeShow extends React.Component {
     return (
       <div>
         <div>
-          <h1>
-            {this.props.shoe.brand}: {this.props.shoe.title}
+          <>
+            <h1>
+              {this.props.shoe.brand}: {this.props.shoe.title}
+            </h1>
             <h2>£{this.props.shoe.price}</h2>
-          </h1>
+          </>
         </div>
         <div
           className="ui buttons"
           style={{ paddingTop: 10, paddingBottom: 10 }}
         >
-          {this.renderBuyButtons()}
+          {this.renderBuyButtons(this.props.shoe)}
         </div>
         <div className="show-show-image-slider">
           <ImageGallery items={images} />
@@ -101,4 +114,8 @@ const mapStateToProps = (state, ownProps) => {
   return { shoe: state.shoes[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { fetchShoe })(ShoeShow);
+export default connect(mapStateToProps, {
+  fetchShoe,
+  addToCart,
+  lowerShoeQuantity,
+})(ShoeShow);

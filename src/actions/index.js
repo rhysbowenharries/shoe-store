@@ -9,6 +9,7 @@ import {
   FETCH_SHOE,
   DELETE_SHOE,
   EDIT_SHOE,
+  ADD_TO_CART,
 } from "./types";
 
 export const signIn = () => {
@@ -42,7 +43,7 @@ export const fetchShoe = (id) => async (dispatch) => {
 };
 
 export const editShoe = (id, formValues) => async (dispatch) => {
-  const response = await Localhost.patch(`/shoes/${id}`, formValues);
+  const response = await Localhost.put(`/shoes/${id}`, formValues);
   dispatch({ type: EDIT_SHOE, payload: response.data.result });
   history.push("/AdminXp2Q/Shoes/List");
 };
@@ -52,4 +53,24 @@ export const deleteShoe = (id) => async (dispatch) => {
 
   dispatch({ type: DELETE_SHOE, payload: id });
   history.push("/AdminXp2Q/Shoes/List");
+};
+
+export const lowerShoeQuantity = (shoe) => async (dispatch) => {
+  const response = await Localhost.patch(`/shoes/${shoe._id}`, {
+    quantity: (shoe.quantity -= 1),
+  });
+  dispatch({ type: EDIT_SHOE, payload: response.data.result });
+};
+export const increaseShoeQuantity = (shoe) => async (dispatch) => {
+  const response = await Localhost.patch(`/shoes/${shoe._id}`, {
+    quantity: (shoe.quantity += 1),
+  });
+  dispatch({ type: EDIT_SHOE, payload: response.data.result });
+};
+
+export const addToCart = (shoe) => {
+  return {
+    type: ADD_TO_CART,
+    shoe,
+  };
 };
