@@ -10,6 +10,7 @@ import {
   DELETE_SHOE,
   EDIT_SHOE,
   ADD_TO_CART,
+  REMOVE_ITEM,
 } from "./types";
 
 export const signIn = () => {
@@ -71,6 +72,12 @@ export const increaseShoeQuantity = (shoe) => async (dispatch) => {
 export const addToCart = (shoe) => {
   return {
     type: ADD_TO_CART,
+    shoe,
+  };
+};
+export const removeItem = (shoe) => {
+  return {
+    type: REMOVE_ITEM,
     shoe,
   };
 };
