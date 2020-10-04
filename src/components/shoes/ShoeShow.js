@@ -37,6 +37,12 @@ class ShoeShow extends React.Component {
     history.push("/success");
   }
 
+  onBuyNowClick(shoe) {
+    this.props.lowerShoeQuantity(shoe);
+    this.props.addToCart(shoe);
+    history.push("/checkout");
+  }
+
   renderBuyButtons() {
     if (this.props.shoe.quantity > 1) {
       return (
@@ -47,7 +53,12 @@ class ShoeShow extends React.Component {
           >
             Add to Cart
           </button>
-          <button className="ui button primary">Buy Now</button>
+          <button
+            onClick={() => this.onBuyNowClick(this.props.shoe)}
+            className="ui button primary"
+          >
+            Buy Now
+          </button>
         </>
       );
     }
@@ -60,7 +71,10 @@ class ShoeShow extends React.Component {
           >
             Add to Cart
           </button>
-          <button className="ui button orange">
+          <button
+            onClick={() => this.onBuyNowClick(this.props.shoe)}
+            className="ui button orange"
+          >
             Buy Now HURRY ONLY ONE LEFT!
           </button>
         </>
