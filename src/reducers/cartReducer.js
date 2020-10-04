@@ -36,15 +36,17 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       return { ...state, addedItems: [...state.addedItems, action.shoe] };
-    case REMOVE_ITEM:
-      return { ...state, addedItems: _.omit(state, action.shoe) };
     case GET_PRICE:
       const newTotal = state.addedItems.reduce(
         (accumulator, current) => accumulator + current.price,
-        state.total
+        0
       );
-      console.log(newTotal);
       return { ...state, total: newTotal };
+    case REMOVE_ITEM:
+      const newArray = state.addedItems.filter((shoe) => {
+        return shoe !== action.shoe;
+      });
+      return { ...state, addedItems: newArray };
     default:
       return state;
   }

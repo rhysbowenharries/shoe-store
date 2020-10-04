@@ -10,7 +10,10 @@ class Checkout extends React.Component {
   onRemoveFromCartClick(shoe) {
     console.log(shoe);
     this.props.increaseShoeQuantity(shoe);
+    this.props.removeItem(shoe);
+    this.props.getPrice();
   }
+
   renderList() {
     return this.props.cart.addedItems.map((shoe) => {
       return (
