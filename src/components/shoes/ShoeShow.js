@@ -32,7 +32,6 @@ class ShoeShow extends React.Component {
   }
 
   onAddtoCartClick(shoe) {
-    console.log(shoe);
     this.props.lowerShoeQuantity(shoe);
     this.props.addToCart(shoe);
     history.push("/success");

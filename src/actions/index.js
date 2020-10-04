@@ -11,6 +11,7 @@ import {
   EDIT_SHOE,
   ADD_TO_CART,
   REMOVE_ITEM,
+  GET_PRICE,
 } from "./types";
 
 export const signIn = () => {
@@ -79,5 +80,12 @@ export const removeItem = (shoe) => {
   return {
     type: REMOVE_ITEM,
     shoe,
+  };
+};
+
+export const getPrice = (cart) => {
+  return {
+    type: GET_PRICE,
+    cart,
   };
 };

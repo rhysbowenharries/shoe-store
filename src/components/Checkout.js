@@ -1,7 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getPrice, removeItem, increaseShoeQuantity } from "../actions";
 
 class Checkout extends React.Component {
+  componentDidMount() {
+    this.props.getPrice();
+  }
+
+  onRemoveFromCartClick(shoe) {
+    console.log(shoe);
+    this.props.increaseShoeQuantity(shoe);
+  }
   renderList() {
     return this.props.cart.addedItems.map((shoe) => {
       return (
@@ -17,9 +26,12 @@ class Checkout extends React.Component {
           }}
           key={shoe._id}
         >
-          <div class="circular ui right floated button">
-            <button class="circular ui icon button">
-              <i class="red close icon"></i>
+          <div className="circular ui right floated button">
+            <button
+              onClick={() => this.onRemoveFromCartClick(shoe)}
+              className="circular ui icon button"
+            >
+              <i className="red close icon"></i>
             </button>
           </div>
           <h3 className="ui black header">{shoe.brand}</h3>
@@ -34,11 +46,20 @@ class Checkout extends React.Component {
     if (!this.props.cart) {
       return <div>loading ...</div>;
     }
-    return <div>{this.renderList()}</div>;
+    return (
+      <div>
+        {this.renderList()}
+        <h2>Total: £{this.props.cart.total}</h2>
+      </div>
+    );
   }
 }
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return { cart: state.cart };
 };
 
-export default connect(mapStateToProps, {})(Checkout);
+export default connect(mapStateToProps, {
+  getPrice,
+  removeItem,
+  increaseShoeQuantity,
+})(Checkout);
