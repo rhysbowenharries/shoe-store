@@ -12,6 +12,8 @@ import {
   ADD_TO_CART,
   REMOVE_ITEM,
   GET_PRICE,
+  CHECKOUT_RENDER,
+  ADD_PAYMENT_DETAILS,
 } from "./types";
 
 export const signIn = () => {
@@ -87,5 +89,18 @@ export const getPrice = (cart) => {
   return {
     type: GET_PRICE,
     cart,
+  };
+};
+
+export const checkoutRender = () => {
+  return {
+    type: CHECKOUT_RENDER,
+  };
+};
+
+export const addPaymentDetails = (formValues) => {
+  return {
+    type: ADD_PAYMENT_DETAILS,
+    formValues: formValues,
   };
 };

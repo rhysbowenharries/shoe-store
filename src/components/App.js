@@ -12,6 +12,7 @@ import history from "../history";
 import AdminPage from "./AdminPage";
 import Checkout from "./Checkout";
 import Success from "./Success";
+import SaleConfirmation from "./SaleConfirmation";
 
 const App = () => {
   return (
@@ -25,6 +26,11 @@ const App = () => {
             <Route path="/AdminXp2Q/Shoes/new" exact component={ShoeCreate} />
             <Route path="/Shoes/List" exact component={ShoeList} />
             <Route path="/checkout" exact component={Checkout} />
+            <Route
+              path="/saleconfirmation"
+              exact
+              component={SaleConfirmation}
+            />
             <Route
               path="/AdminXp2Q/Shoes/Delete/:id"
               exact

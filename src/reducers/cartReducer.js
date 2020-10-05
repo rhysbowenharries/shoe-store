@@ -1,11 +1,9 @@
-import _ from "lodash";
 import {
   ADD_TO_CART,
   REMOVE_ITEM,
   GET_PRICE,
-  SUB_QUANTITY,
-  ADD_QUANTITY,
-  ADD_SHIPPING,
+  CHECKOUT_RENDER,
+  ADD_PAYMENT_DETAILS,
 } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -30,6 +28,8 @@ const INITIAL_STATE = {
     },
   ],
   total: 0,
+  checkoutRender: false,
+  paymentDetails: { test: "test" },
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -47,6 +47,13 @@ export default (state = INITIAL_STATE, action) => {
         return shoe !== action.shoe;
       });
       return { ...state, addedItems: newArray };
+    case CHECKOUT_RENDER:
+      return { ...state, checkoutRender: true };
+    case ADD_PAYMENT_DETAILS:
+      return {
+        ...state,
+        paymentDetails: action.formValues,
+      };
     default:
       return state;
   }

@@ -1,6 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getPrice, removeItem, increaseShoeQuantity } from "../actions";
+import history from "../history";
+import {
+  getPrice,
+  removeItem,
+  increaseShoeQuantity,
+  checkoutRender,
+  addPaymentDetails,
+} from "../actions";
+import EmailForm from "./EmailForm";
 
 class Checkout extends React.Component {
   componentDidMount() {
@@ -8,12 +16,35 @@ class Checkout extends React.Component {
   }
 
   onRemoveFromCartClick(shoe) {
-    console.log(shoe);
     this.props.increaseShoeQuantity(shoe);
     this.props.removeItem(shoe);
     this.props.getPrice();
   }
 
+  createTransaction() {
+    console.log("cart 5 seconds", this.props.cart);
+  }
+
+  onSubmit = (formValues) => {
+    this.props.addPaymentDetails(formValues);
+    setTimeout(() => {
+      this.createTransaction();
+    }, 2000);
+    history.push("/saleconfirmation");
+  };
+  renderCheckout() {
+    if (this.props.cart.checkoutRender === false) {
+      return (
+        <button
+          onClick={() => this.props.checkoutRender(true)}
+          className="ui primary button"
+        >
+          Proceed to Checkout
+        </button>
+      );
+    }
+    return <EmailForm onSubmit={this.onSubmit} />;
+  }
   renderList() {
     return this.props.cart.addedItems.map((shoe) => {
       return (
@@ -53,6 +84,7 @@ class Checkout extends React.Component {
       <div>
         {this.renderList()}
         <h2>Total: £{this.props.cart.total}</h2>
+        {this.renderCheckout()}
       </div>
     );
   }
@@ -65,4 +97,6 @@ export default connect(mapStateToProps, {
   getPrice,
   removeItem,
   increaseShoeQuantity,
+  checkoutRender,
+  addPaymentDetails,
 })(Checkout);
