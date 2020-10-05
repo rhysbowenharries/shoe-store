@@ -36,7 +36,7 @@ class ShoeList extends React.Component {
   }
 
   renderList() {
-    return this.props.shoes.map((shoe) => {
+    return this.props.shoes.map((shoe, index) => {
       return (
         <div
           style={{
@@ -51,7 +51,9 @@ class ShoeList extends React.Component {
           key={shoe._id}
         >
           <Link to={`/shoes/${shoe._id}`}>
-            <i className="massive middle aligned images black icon" />
+            <img
+              src={`https://source.unsplash.com/collection/4387572/126x112?sig=${index}`}
+            />
             <div className="ui content">
               <div className="desctiption">
                 <h3 className="ui black header">{shoe.brand}</h3>
@@ -70,9 +72,9 @@ class ShoeList extends React.Component {
   renderCreate() {
     if (this.props.adminPrivileges) {
       return (
-        <div className="fluid ui yellow button">
-          <Link to="/AdminXp2Q/shoes/new">Add Product</Link>
-        </div>
+        <Link className="fluid ui yellow button" to="/AdminXp2Q/shoes/new">
+          <div className="">Add Product</div>
+        </Link>
       );
     }
   }
