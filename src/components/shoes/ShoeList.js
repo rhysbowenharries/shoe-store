@@ -106,7 +106,9 @@ class ShoeList extends React.Component {
           style={{ justifyContent: "center", marginTop: 10 }}
         >
           <h2>ALL SHOES</h2>
-          <div className="doubling eight column row">{this.renderList()}</div>
+          <div style={{ maxWidth: 1000 }} className="doubling eight column row">
+            {this.renderList()}
+          </div>
           {this.renderCreate()}
         </div>
       </div>

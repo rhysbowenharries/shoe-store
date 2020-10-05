@@ -9,6 +9,7 @@ import {
   addPaymentDetails,
 } from "../actions";
 import EmailForm from "./EmailForm";
+import { Link } from "react-router-dom";
 
 class Checkout extends React.Component {
   componentDidMount() {
@@ -79,6 +80,16 @@ class Checkout extends React.Component {
   render() {
     if (!this.props.cart) {
       return <div>loading ...</div>;
+    }
+    if (this.props.cart.total === 0) {
+      return (
+        <div>
+          <h3>Your Shopping Cart Is Empty</h3>
+          <Link className="ui green button" to={"/shoes/list"}>
+            Continue Shopping
+          </Link>
+        </div>
+      );
     }
     return (
       <div>

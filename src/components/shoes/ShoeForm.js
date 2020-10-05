@@ -105,7 +105,7 @@ class ShoeForm extends React.Component {
           ))}
         </Field>
 
-        <button className="ui button primary">Submit</button>
+        <button className="ui left floated button primary">Submit</button>
       </form>
     );
   }
