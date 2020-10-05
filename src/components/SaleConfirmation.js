@@ -26,7 +26,7 @@ class SaleConfirmation extends Component {
         <p>Oreder Date: {date}</p>
         <p>Items Ordered:</p>
         {this.renderList()}
-        <h3>Order Total: {this.props.cart.total}</h3>
+        <h3>Order Total: £{this.props.cart.total}</h3>
         <p>
           Please save this information for reference, a confirmation will be
           sent to {this.props.cart.paymentDetails.email}. Please allow up to 24

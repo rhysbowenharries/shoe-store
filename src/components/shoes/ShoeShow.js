@@ -4,6 +4,7 @@ import history from "../../history";
 import { connect } from "react-redux";
 import { fetchShoe, addToCart, lowerShoeQuantity } from "../../actions";
 import ImageGallery from "react-image-gallery";
+import { Link } from "react-router-dom";
 
 const images = [
   {
@@ -81,9 +82,11 @@ class ShoeShow extends React.Component {
       );
     } else {
       return (
-        <button className="ui red button ">
-          Sold Out, Click here for Back in Stock Alerts!
-        </button>
+        <Link to={"/signup"}>
+          <button className="ui red button ">
+            Sold Out, Click here for Back in Stock Alerts!
+          </button>
+        </Link>
       );
     }
   }

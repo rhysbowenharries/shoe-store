@@ -7,26 +7,7 @@ import {
 } from "../actions/types";
 
 const INITIAL_STATE = {
-  addedItems: [
-    {
-      _id: "5f6cdc2f3b8ad3d86be491db",
-      title: "Beat Dogs",
-      description: "Keep the beat",
-      price: 12.8,
-      brand: "Kickers",
-      category: "W sports",
-      quantity: 1,
-    },
-    {
-      _id: "5f7190862b29d909c06ff8ba",
-      title: "ds-lite",
-      description: "Hi that stuff",
-      price: 60.5,
-      quantity: 11,
-      brand: "Nike",
-      category: "M casual",
-    },
-  ],
+  addedItems: [],
   total: 0,
   checkoutRender: false,
   paymentDetails: { test: "test" },

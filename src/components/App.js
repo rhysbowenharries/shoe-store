@@ -13,39 +13,45 @@ import AdminPage from "./AdminPage";
 import Checkout from "./Checkout";
 import Success from "./Success";
 import SaleConfirmation from "./SaleConfirmation";
+import NewsletterSignup from "./NewsletterSignup";
+import ScrollToTop from "./ScrollToTop";
 
 const App = () => {
   return (
     <div className="ui container">
       <Router history={history}>
-        <div>
-          <Header />
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/success" exact component={Success} />
-            <Route path="/AdminXp2Q/Shoes/new" exact component={ShoeCreate} />
-            <Route path="/Shoes/List" exact component={ShoeList} />
-            <Route path="/checkout" exact component={Checkout} />
-            <Route
-              path="/saleconfirmation"
-              exact
-              component={SaleConfirmation}
-            />
-            <Route
-              path="/AdminXp2Q/Shoes/Delete/:id"
-              exact
-              component={ShoeDelete}
-            />
-            <Route
-              path="/AdminXp2Q/Shoes/edit/:id"
-              exact
-              component={ShoeEdit}
-            />
-            <Route path="/AdminXp2Q/Shoes/List" exact component={ShoeList} />
-            <Route path="/AdminXp2Q" component={AdminPage} />
-            <Route path="/Shoes/:id" exact component={ShoeShow} />
-          </Switch>
-        </div>
+        <>
+          <ScrollToTop />
+          <div>
+            <Header />
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/success" exact component={Success} />
+              <Route path="/AdminXp2Q/Shoes/new" exact component={ShoeCreate} />
+              <Route path="/Shoes/List" exact component={ShoeList} />
+              <Route path="/checkout" exact component={Checkout} />
+              <Route path="/signup" exact component={NewsletterSignup} />
+              <Route
+                path="/saleconfirmation"
+                exact
+                component={SaleConfirmation}
+              />
+              <Route
+                path="/AdminXp2Q/Shoes/Delete/:id"
+                exact
+                component={ShoeDelete}
+              />
+              <Route
+                path="/AdminXp2Q/Shoes/edit/:id"
+                exact
+                component={ShoeEdit}
+              />
+              <Route path="/AdminXp2Q/Shoes/List" exact component={ShoeList} />
+              <Route path="/AdminXp2Q" component={AdminPage} />
+              <Route path="/Shoes/:id" exact component={ShoeShow} />
+            </Switch>
+          </div>
+        </>
       </Router>
     </div>
   );
