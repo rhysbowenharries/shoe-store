@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Workable//Calendar
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTAMP:20200924T144138Z
+UID:s_n2uufbpz6_3grrj1fpyv5z5od7huxy
+DTSTART:20201007T133000Z
+DTEND:20201007T143000Z
+DESCRIPTION:<p>Hi Rhys</p><p>Nabeel Nasir will be your interviewer on 7th O
+ ctober at 2.20pm. Please use the link in this email for the interview. You
+  will need to be able to share your screen with Nabeel\, as this interview
+  is based around the Golden Shoe Case Study I have sent you. I would advis
+ e that you try the link in advance of the interview\, to ensure you can ac
+ cess it smoothly on the day.</p><p>Thanks</p><p>Liv</p>\nThis event has a 
+ video call.\nJoin: https://meet.google.com/wxy-qats-tbj\n
+LOCATION:https://meet.google.com/wxy-qats-tbj
+ORGANIZER;CN=AND Digital:mailto:c4f1bveuwemv-@events.workablemail.com
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Call for Graduate Developer (Edinburgh) job at AND Digital
+TRANSP:OPAQUE
+URL:http://www.workable.com/events/s_n2uufbpz6_3grrj1fpyv5z5od7huxy
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;RSVP=TRUE;PARTSTAT=NEEDS-AC
+ TION;CN=Rhys Harries:mailto:rbharries@gmail.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;RSVP=TRUE;PARTSTAT=ACCEPTED
+ ;CN=Bonnie Green:mailto:bgreen@and.digital
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;RSVP=TRUE;PARTSTAT=ACCEPTED
+ ;CN=Nabeel Ahmad Nasir:mailto:nnasir@and.digital
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;RSVP=TRUE;PARTSTAT=ACCEPTED
+ ;CN=Olivia Marsden:mailto:omarsden@and.digital
+END:VEVENT
+END:VCALENDAR
