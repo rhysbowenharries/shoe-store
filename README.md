@@ -23,4 +23,5 @@ npm start
 <!-- look for consle log: "connected to db" -->
 
 the browser should open at the correct web page (http://localhost:3000/) ready for your interaction.
-You can acces the sites hidden ß"admin portal" by adding "/adminXp2Q" to the url
+You can acces the sites hidden "admin portal" by adding "/adminXp2Q" to the url
+Sign in using any gmail account.
